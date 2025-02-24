@@ -69,14 +69,16 @@ int GerarNumeroSecreto(int secretNumberOld)
         secretNumberNew = random.Next(1,101);
     }
 
+    Console.WriteLine("\nNúmero Secreto Gerado! Boa sorte!");
+
     return secretNumberNew;
 }
 
 void IniciarPartida()
 {
+    Console.WriteLine("\nIniciando partida...");
     secretNumber = GerarNumeroSecreto(secretNumber);
     statusGame = 1;
-    Console.WriteLine("\nNúmero Secreto Gerado! Boa sorte!");
 }
 void ReiniciarPartida()
 {
@@ -125,8 +127,16 @@ int ValidarTentativa(int attempt, int attemptCount)
     else
     {
         Console.WriteLine($"Você acertou em {attemptCount} tentativas!");
+
+        LimparConsole(3000);
         return 1;
     }
+}
+
+void LimparConsole(int timeToClear)
+{
+    Thread.Sleep(timeToClear);
+    Console.Clear();
 }
 
 void Main()
